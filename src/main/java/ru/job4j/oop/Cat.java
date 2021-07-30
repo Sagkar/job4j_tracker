@@ -12,9 +12,10 @@ public class Cat {
         System.out.println(this.food + " " + this.name);
     }
 
-    public void eat (String meat) {
+    public void eat(String meat) {
         this.food = meat;
     }
+
     public static void main(String[] args) {
         System.out.println("There are gav's food.");
         Cat gav = new Cat();

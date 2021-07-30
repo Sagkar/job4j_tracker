@@ -1,5 +1,5 @@
 package ru.job4j.oop;
 
 public class Girl {
-    public void help(Pioneer pioneer) {}
+    public void help(Pioneer pioneer) { }
 }
