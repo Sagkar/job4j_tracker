@@ -27,7 +27,9 @@ public class Point {
     }
 
     public double distance3d(Point first, Point second) {
-        return Math.sqrt(pow(first.x - second.x, 2) + pow(first.y - second.y, 2) + pow(first.z - second.z, 2));
+        return Math.sqrt(pow(first.x - second.x, 2)
+                + pow(first.y - second.y, 2)
+                + pow(first.z - second.z, 2));
     }
 
     public static void main(String[] args) {
