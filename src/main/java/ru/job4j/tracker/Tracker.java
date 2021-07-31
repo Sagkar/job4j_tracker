@@ -23,9 +23,10 @@ public class Tracker {
     public Item[] findAll() {
         Item[] itemsWithoutNull = new Item[items.length];
         for (Item value : items) {
-            if (value != null)
+            if (value != null) {
                 itemsWithoutNull[size] = value;
-            size++;
+                size++;
+            }
         }
         itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, size);
         for (Item item : itemsWithoutNull) {

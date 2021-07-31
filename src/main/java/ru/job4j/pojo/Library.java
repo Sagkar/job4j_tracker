@@ -6,7 +6,7 @@ public class Library {
         Book cook = new Book("Cooking", 300);
         Book math = new Book("Math", 450);
         Book anatomy = new Book("Anatomy", 350);
-        Book[] books = {cleanCode,cook,math,anatomy};
+        Book[] books = {cleanCode, cook, math, anatomy};
         for (Book book : books) {
             System.out.println(book.getName() + " " + book.getPages() + " pages");
         }
