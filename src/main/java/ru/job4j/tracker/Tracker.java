@@ -32,12 +32,7 @@ public class Tracker {
                 arrSize++;
             }
         }
-        withoutNull = Arrays.copyOf(withoutNull, arrSize);
-        for (int i = 0; i < withoutNull.length; i++) {
-            Item item = withoutNull[i];
-            System.out.println(item);
-        }
-        return withoutNull;
+        return withoutNull = Arrays.copyOf(withoutNull, arrSize);
     }
 
     private int indexOf(int id) {
