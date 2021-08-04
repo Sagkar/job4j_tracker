@@ -20,7 +20,7 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
 
-    public Item[] findAll() {return Arrays.copyOf(items, size); }
+    public Item[] findAll() { return Arrays.copyOf(items, size); }
 
     public Item[] findByName(String key) {
         Item[] withoutNull = new Item[items.length];
@@ -55,9 +55,10 @@ public class Tracker {
         }
         return false;
     }
+
     public boolean delete(int id) {
         int index = indexOf(id);
-        if(index != -1) {
+        if (index != -1) {
             System.arraycopy(items, index + 1, items, index, size - index - 1);
             items[size - 1] = null;
             size--;
