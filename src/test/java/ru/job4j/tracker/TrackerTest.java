@@ -213,7 +213,7 @@ public class TrackerTest {
                 new ExitAction()
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is("ShowTestItem"));
+        assertThat(tracker.findAll()[0].getName(), is("ShowTestItem"));
     }
 
     @Test
@@ -223,13 +223,13 @@ public class TrackerTest {
         Item item = tracker.add(new Item("IDTestItem"));
         String id = String.valueOf(item.getId());
         Input in = new StubInput(new String[] {"0", id, "1"});
-        String rsl = String.valueOf(tracker.findById(item.getId()).getName());
+        String rsl = item.getName();
         UserAction[] actions = {
                 new FindIdAction(output),
                 new ExitAction()
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(rsl, is("IDTestItem"));
+        assertThat(tracker.findById(item.getId()).getName(), is("IDTestItem"));
     }
 
     @Test
@@ -239,7 +239,7 @@ public class TrackerTest {
         Item item = tracker.add(new Item("NamedItem"));
         String name = item.getName();
         Input in = new StubInput(new String[] {"0", name, "1"});
-        String rsl = String.valueOf(tracker.findById(item.getId()).getName());
+        String rsl = tracker.findByName(name)[0].getName();
         UserAction[] actions = {
                 new FindNameAction(output),
                 new ExitAction()
