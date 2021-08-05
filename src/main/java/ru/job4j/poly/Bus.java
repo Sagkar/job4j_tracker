@@ -1,19 +1,21 @@
 package ru.job4j.poly;
 
 public class Bus implements  Transport, Vehicle {
+    private int seats = 15;
+
     @Override
     public void drive() {
-
+        System.out.println("Vrrrrr");
     }
 
     @Override
     public void passengers(int pass) {
-
+        int freeSeats = seats - pass;
     }
 
     @Override
-    public int refuel(int fuel) {
-        return 1;
+    public double refuel(int fuel) {
+        return fuel * 1.5;
     }
 
     @Override
