@@ -74,7 +74,11 @@ public class StartUI {
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         tracker.replace(id, item);
-        System.out.println("Заявка изменена: " + item);
+        if (tracker.replace(id, item)) {
+            System.out.println("Заявка изменена: " + item);
+        } else {
+            System.out.println("Ошибка, такой заявки не существует");
+        }
     }
 
     public void init(Input input, Tracker tracker) {
