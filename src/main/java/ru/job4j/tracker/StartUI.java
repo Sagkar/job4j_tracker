@@ -68,6 +68,15 @@ public class StartUI {
         }
     }
 
+    public static void replaceItem(Input input, Tracker tracker) {
+        System.out.println("=== Replace item ====");
+        int id = input.askInt("Enter id: ");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        tracker.replace(id, item);
+        System.out.println("Заявка изменена: " + item);
+    }
+
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
@@ -87,6 +96,8 @@ public class StartUI {
                 } else if (select == 5) {
                     findByName(input, tracker);
                 } else if (select == 6) {
+                    replaceItem(input, tracker);
+                } else if (select == 7) {
                     run = false;
                 }
             } catch (NumberFormatException e) {
