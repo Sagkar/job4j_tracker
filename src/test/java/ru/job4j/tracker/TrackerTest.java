@@ -201,4 +201,50 @@ public class TrackerTest {
                         "0. Exit" + System.lineSeparator()
         ));
     }
+
+    @Test
+    public void whenFindAllItems() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("ShowTestItem"));
+        Input in = new StubInput(new String[] {"0", "1"});
+        UserAction[] actions = {
+                new ShowAllAction(output),
+                new ExitAction()
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(tracker.findById(item.getId()).getName(), is("ShowTestItem"));
+    }
+
+    @Test
+    public void whenFindIdAction() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("IDTestItem"));
+        String id = String.valueOf(item.getId());
+        Input in = new StubInput(new String[] {"0", id, "1"});
+        String rsl = String.valueOf(tracker.findById(item.getId()).getName());
+        UserAction[] actions = {
+                new FindIdAction(output),
+                new ExitAction()
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(rsl, is("IDTestItem"));
+    }
+
+    @Test
+    public void whenFindNameAction() {
+        Output output = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("NamedItem"));
+        String name = item.getName();
+        Input in = new StubInput(new String[] {"0", name, "1"});
+        String rsl = String.valueOf(tracker.findById(item.getId()).getName());
+        UserAction[] actions = {
+                new FindNameAction(output),
+                new ExitAction()
+        };
+        new StartUI(output).init(in, tracker, actions);
+        assertThat(rsl, is("NamedItem"));
+    }
 }
