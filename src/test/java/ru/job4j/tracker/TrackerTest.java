@@ -224,7 +224,6 @@ public class TrackerTest {
         Item item = tracker.add(new Item("IDTestItem"));
         String id = String.valueOf(item.getId());
         Input in = new StubInput(new String[] {"0", id, "1"});
-        String rsl = item.getName();
         UserAction[] actions = {
                 new FindIdAction(output),
                 new ExitAction()
