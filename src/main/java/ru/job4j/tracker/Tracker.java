@@ -14,13 +14,13 @@ public class Tracker {
     }
 
     public Item findById(int id) {
-        /* Находим индекс */
         int index = indexOf(id);
-        /* Если индекс найден возвращаем item, иначе null */
         return index != -1 ? items[index] : null;
     }
 
-    public Item[] findAll() { return Arrays.copyOf(items, size); }
+    public Item[] findAll() {
+        return Arrays.copyOf(items, size);
+    }
 
     public Item[] findByName(String key) {
         Item[] withoutNull = new Item[items.length];
@@ -32,7 +32,7 @@ public class Tracker {
                 arrSize++;
             }
         }
-        return withoutNull = Arrays.copyOf(withoutNull, arrSize);
+        return Arrays.copyOf(withoutNull, arrSize);
     }
 
     private int indexOf(int id) {
