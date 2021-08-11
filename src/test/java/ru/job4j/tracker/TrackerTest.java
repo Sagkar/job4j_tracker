@@ -219,10 +219,11 @@ public class TrackerTest {
                 + "0. Show all items" + System.lineSeparator()
                 + "1. Exit" + System.lineSeparator()
                 + "=== Show all items ====" + System.lineSeparator()
-                + tracker.findAll() + System.lineSeparator()
+                + item + System.lineSeparator()
                 + "Menu." + System.lineSeparator()
                 + "0. Show all items" + System.lineSeparator()
-                + "1. Exit" + System.lineSeparator()));
+                + "1. Exit" + System.lineSeparator()
+        ));
     }
 
     @Test
@@ -266,7 +267,7 @@ public class TrackerTest {
                 + "0. Find items by name" + System.lineSeparator()
                 + "1. Exit" + System.lineSeparator()
                 + "=== Find items by name ====" + System.lineSeparator()
-                + tracker.findByName(name) + System.lineSeparator()
+                + item + System.lineSeparator()
                 + "Menu." + System.lineSeparator()
                 + "0. Find items by name" + System.lineSeparator()
                 + "1. Exit" + System.lineSeparator()
