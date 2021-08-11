@@ -20,7 +20,6 @@ public class DeleteAction implements UserAction {
             output.println("Заявка удалена успешно.");
         } else {
             output.println("Ошибка удаления заявки.");
-            return false;
         }
         return true;
     }

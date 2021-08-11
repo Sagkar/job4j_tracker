@@ -23,7 +23,6 @@ public class ReplaceAction implements UserAction {
             out.println("Заявка изменена: " + item);
         } else {
             out.println("Ошибка, такой заявки не существует");
-            return false;
         }
         return true;
     }

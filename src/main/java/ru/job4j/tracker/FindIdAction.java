@@ -21,7 +21,6 @@ public class FindIdAction implements UserAction {
             output.println(item);
         } else {
             output.println("Заявка с введенным id: " + id + " не найдена.");
-            return false;
         }
         return true;
     }
