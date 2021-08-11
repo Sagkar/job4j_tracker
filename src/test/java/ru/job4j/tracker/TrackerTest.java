@@ -214,7 +214,15 @@ public class TrackerTest {
                 new ExitAction()
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("ShowTestItem"));
+        assertThat(output.toString(), is(
+                "Menu." + System.lineSeparator()
+                + "0. Show all items" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+                + "=== Show all items ====" + System.lineSeparator()
+                + tracker.findAll() + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. Show all items" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()));
     }
 
     @Test
@@ -229,7 +237,16 @@ public class TrackerTest {
                 new ExitAction()
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(tracker.findById(item.getId()).getName(), is("IDTestItem"));
+        assertThat(output.toString(), is(
+                "Menu." + System.lineSeparator()
+                + "0. Find item by ID" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+                + "=== Find item by id ====" + System.lineSeparator()
+                + tracker.findById(item.getId()) + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. Find item by ID" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+        ));
     }
 
     @Test
@@ -239,12 +256,20 @@ public class TrackerTest {
         Item item = tracker.add(new Item("NamedItem"));
         String name = item.getName();
         Input in = new StubInput(new String[] {"0", name, "1"});
-        String rsl = tracker.findByName(name)[0].getName();
         UserAction[] actions = {
                 new FindNameAction(output),
                 new ExitAction()
         };
         new StartUI(output).init(in, tracker, actions);
-        assertThat(rsl, is("NamedItem"));
+        assertThat(output.toString(), is(
+                "Menu." + System.lineSeparator()
+                + "0. Find items by name" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+                + "=== Find items by name ====" + System.lineSeparator()
+                + tracker.findByName(name) + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. Find items by name" + System.lineSeparator()
+                + "1. Exit" + System.lineSeparator()
+        ));
     }
 }
