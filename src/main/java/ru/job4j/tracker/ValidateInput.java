@@ -14,17 +14,16 @@ public class ValidateInput implements Input {
         return in.askStr(question);
     }
 
-
     @Override
     public int askInt(String question) {
         boolean invalid = true;
         int value = -1;
         do {
             try {
-                value = askInt(question);
+                value = in.askInt(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
-                System.out.println("Please enter validate data again.");
+                out.println("Please enter validate data again.");
             }
         } while (invalid);
         return value;
