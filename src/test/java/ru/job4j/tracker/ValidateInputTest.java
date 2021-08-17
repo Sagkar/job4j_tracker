@@ -25,7 +25,7 @@ public class ValidateInputTest {
                 new String[] {"1"}
         );
         ValidateInput validateInput = new ValidateInput(output, input);
-        int selected = input.askInt("Enter menu:");
+        int selected = validateInput.askInt("Enter menu:");
         assertThat(selected, is(1));
     }
 
@@ -33,11 +33,13 @@ public class ValidateInputTest {
     public void whenMultiValidInput() {
         Output output = new StubOutput();
         Input input = new StubInput(
-                new String[] {"1", "1"}
+                new String[] {"1", "2", "3", "4"}
         );
         ValidateInput validateInput = new ValidateInput(output, input);
-        int selected = input.askInt("Enter menu:");
-        assertThat(selected, is(1));
+        for (int i = 1; i < 5; i++) {
+            int selected = validateInput.askInt("Enter menu:");
+            assertThat(selected, is(i));
+        }
     }
 
     @Test
@@ -47,7 +49,7 @@ public class ValidateInputTest {
                 new String[] {"-4"}
         );
         ValidateInput validateInput = new ValidateInput(output, input);
-        int selected = input.askInt("Enter menu:");
+        int selected = validateInput.askInt("Enter menu:");
         assertThat(selected, is(-4));
     }
 }
