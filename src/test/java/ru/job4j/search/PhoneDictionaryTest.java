@@ -17,8 +17,7 @@ public class PhoneDictionaryTest {
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 
-    @Test
-            (expected = IndexOutOfBoundsException.class)
+    @Test(expected = IndexOutOfBoundsException.class)
     public void cantFindAnything() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
