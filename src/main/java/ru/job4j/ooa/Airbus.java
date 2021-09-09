@@ -1,6 +1,6 @@
 package ru.job4j.ooa;
 
-public final class Airbus extends Aircraft{
+public final class Airbus extends Aircraft {
     private final static int COUNT_ENGINE = 2;
 
     private String name;
@@ -29,8 +29,8 @@ public final class Airbus extends Aircraft{
 
     @Override
     public String toString() {
-        return "Airbus{" +
-                "name='" + name + '\''
+        return "Airbus{"
+                + "name='" + name + '\''
                 + '}';
     }
 }

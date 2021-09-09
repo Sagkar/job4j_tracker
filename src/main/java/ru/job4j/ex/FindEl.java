@@ -43,7 +43,7 @@ public class FindEl {
     public static void main(String[] args) {
         String[] array = new String[] {"randomName"};
         try {
-            indexOf(array,"random");
+            indexOf(array, "random");
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }

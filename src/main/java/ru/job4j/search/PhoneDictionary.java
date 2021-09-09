@@ -13,6 +13,7 @@ public class PhoneDictionary {
      * @param key Ключ поиска.
      * @return Список подошедших пользователей.
      */
+
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {

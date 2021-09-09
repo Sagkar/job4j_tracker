@@ -5,14 +5,13 @@ public final class SingleTracker {
 
     private Tracker tracker = new Tracker();
 
+    private SingleTracker() { }
+
     public SingleTracker getInstance() {
         if (instance == null) {
             instance = new SingleTracker();
         }
         return instance;
-    }
-
-    private SingleTracker() {
     }
 
     public Item add(Item item) {
