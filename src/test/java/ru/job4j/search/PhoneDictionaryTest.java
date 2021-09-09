@@ -16,4 +16,15 @@ public class PhoneDictionaryTest {
         ArrayList<Person> persons = phones.find("Petr");
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
+
+    @Test
+            (expected = IndexOutOfBoundsException.class)
+    public void cantFindAnything() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Petr", "Arsentev", "534872", "Bryansk")
+        );
+        ArrayList<Person> persons = phones.find("Dmitry");
+        assertThat(persons.get(0).getSurname(), is("Dmitry"));
+    }
 }
