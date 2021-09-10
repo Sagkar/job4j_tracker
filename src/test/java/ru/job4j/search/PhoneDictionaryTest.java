@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class PhoneDictionaryTest {
     @Test
@@ -17,13 +18,13 @@ public class PhoneDictionaryTest {
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test
     public void cantFindAnything() {
         PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         ArrayList<Person> persons = phones.find("Dmitry");
-        assertThat(persons.get(0).getSurname(), is("Dmitry"));
+        assertTrue(persons.isEmpty());
     }
 }
