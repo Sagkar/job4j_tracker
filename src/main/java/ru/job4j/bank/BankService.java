@@ -82,7 +82,7 @@ public class BankService {
      * @param destPassport паспорт пользователя, которому будет направлен перевод
      * @param destRequisite номер счёта, на который будут перечислены средства
      * @param amount число переводимых средств
-     * @return true если переводу прошёл успешно, false если счёт не найден
+     * @return true если перевод прошёл успешно, false если счёт не найден
      * или не хватает средств на счёте с которого осуществляется перевод
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
