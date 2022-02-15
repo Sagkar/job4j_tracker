@@ -18,16 +18,18 @@ public class BankService {
     /**
      * Метод принимает на вход пользователя
      * и если такого пользователя ещё нет, добавляет его как нового
+     *
      * @param user пользователь который добавляется в коллекцию
      */
     public void addUser(User user) {
-            users.putIfAbsent(user, new ArrayList<Account>());
+        users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     /**
      * Добавляет новый счет к пользователю, если такого счёта у ещё нет
+     *
      * @param passport паспорт пользователя, к которому привязывается счёт
-     * @param account счёт который привязывается к пользователю
+     * @param account  счёт который привязывается к пользователю
      */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
@@ -41,23 +43,22 @@ public class BankService {
 
     /**
      * Этот метод осуществляет поиск пользователя по паспорту
+     *
      * @param passport номер паспорта искомого пользователя
      * @return возвращает пользователя или null, если ничего не найдено
      */
     public User findByPassport(String passport) {
-        User rsl = null;
-        for (User keys : users.keySet()) {
-            if (keys.getPassport().equals(passport)) {
-                rsl = keys;
-                break;
-            }
-            }
-        return rsl;
+        return users.keySet()
+                .stream()
+                .filter(k -> k.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
      * Метод ищет счёт пользователя по реквизитам
-     * @param passport паспорт пользователя, счёт которого ищем
+     *
+     * @param passport  паспорт пользователя, счёт которого ищем
      * @param requisite реквизиты искомого счёта
      * @return возвращает счёт пользователя или null,
      * если не найден такой пользователь и счёт
@@ -65,12 +66,11 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
-            List<Account> reqs = users.get(user);
-            for (Account req : reqs) {
-                if (req.getRequisite().equals(requisite)) {
-                    return req;
-                }
-            }
+            return users.get(user)
+                    .stream()
+                    .filter(account -> account.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
