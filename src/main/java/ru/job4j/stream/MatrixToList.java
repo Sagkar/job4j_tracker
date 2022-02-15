@@ -9,8 +9,8 @@ import java.util.stream.Stream;
 public class MatrixToList {
 
     public static List<Integer> convert(Integer[][] matrix) {
-        return new ArrayList<Integer>(Stream.of(matrix)
+        return Stream.of(matrix)
                 .flatMap(Arrays::stream)
-                .collect(Collectors.toList()));
+                .collect(Collectors.toList());
     }
 }
