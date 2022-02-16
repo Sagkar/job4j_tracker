@@ -78,10 +78,8 @@ public class Car {
         System.out.println(car1);
         Car car2 = new Builder()
                 .buildBrand("Hyundai")
-                .buildModel("")
                 .buildCreated(LocalDate.of(1,1,1))
                 .buildVolume(1)
-                .buildColor("")
                 .build();
         System.out.println(car2);
     }
