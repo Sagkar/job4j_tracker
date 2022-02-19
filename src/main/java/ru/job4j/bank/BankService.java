@@ -29,7 +29,7 @@ public class BankService {
      * @param account  счёт который привязывается к пользователю
      */
     public void addAccount(String passport, Account account) {
-        Optional<User> user = (findByPassport(passport));
+        Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
             List<Account> accounts = users.get(user.get());
             if (!accounts.contains(accounts)) {
@@ -45,11 +45,10 @@ public class BankService {
      * @return возвращает пользователя или null, если ничего не найдено
      */
     public Optional<User> findByPassport(String passport) {
-        return Optional.ofNullable(users.keySet()
+        return users.keySet()
                 .stream()
                 .filter(k -> k.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null));
+                .findFirst();
     }
 
     /**
@@ -61,15 +60,14 @@ public class BankService {
      * если не найден такой пользователь и счёт
      */
     public Optional<Account> findByRequisite(String passport, String requisite) {
-        Optional<User> user = (findByPassport(passport));
+        Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            return Optional.ofNullable(users.get(user.get())
+            return users.get(user.get())
                     .stream()
                     .filter(account -> account.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null));
+                    .findFirst();
         }
-        return null;
+        return Optional.empty();
     }
 
     /**
